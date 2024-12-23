@@ -12,8 +12,6 @@ requires "https://github.com/Nimaoth/nimclay >= 0.1.0"
 
 ## Usage
 
-See [here](tests/test2.nim) for more examples.
-
 ```nim
 import clay
 
