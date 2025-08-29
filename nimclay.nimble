@@ -1,23 +1,28 @@
 when defined(nimsuggest):
   import system/nimscript
 
-version       = "0.1.0"
-author        = "Nimaoth"
+version       = "0.1.1"
+author        = "Nimaoth/thearchivalone"
 description   = "Nim wrapper for clay"
 license       = "MIT"
 srcDir        = "src"
 
 requires "nim >= 2.0.8"
-requires "https://github.com/Nimaoth/nimgen >= 0.5.4"
 
-const cmd = when defined(Windows): "cmd /c " else: ""
+const path_delimiter = when defined(Windows): "\\" else: "/"
+const nim_deps = when existsEnv("NIMDEPS"): getEnv("NIMDEPS") else: nimcacheDir()
 
-task nimgen, "Nimgen":
-  if gorgeEx(cmd & "nimgen").exitCode != 0:
-    withDir(".."):
-      exec "nimble install nimgen -y"
+const clay_dir = nim_deps & path_delimiter & "nimclay.thearchivalone.github.com"
+const clay_src_dir = clay_dir & path_delimiter & "src" & path_delimiter & "clay"
 
-  exec cmd & "nimgen nimclay.cfg"
+task dep, "":
+  if not dirExists(clay_src_dir):
+    exec("git clone" & " " &
+        "--recursive" & " " &
+        "--depth=1" & " " &
+        "https://github.com/nicbarker/clay.git" &
+        " " &
+        clay_src_dir)
 
 before install:
-  nimgenTask()
+  depTask()
