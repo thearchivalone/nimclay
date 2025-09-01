@@ -7,7 +7,7 @@ Nim wrapper for [clay](https://github.com/nicbarker/clay)
 Add this to your nimble file:
 
 ```nim
-requires "https://github.com/Nimaoth/nimclay >= 0.1.0"
+requires "https://github.com/thearchivalone/nimclay >= 0.1.1"
 ```
 
 ## Usage

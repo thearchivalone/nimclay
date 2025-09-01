@@ -7,7 +7,7 @@ description   = "Nim wrapper for clay"
 license       = "MIT"
 srcDir        = "src"
 
-requires "nim >= 2.0.8"
+requires "nim >= 2.2.4"
 
 const path_delimiter = when defined(Windows): "\\" else: "/"
 const nim_deps = when existsEnv("NIMDEPS"): getEnv("NIMDEPS") else: nimcacheDir()
