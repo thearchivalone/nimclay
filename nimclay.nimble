@@ -1,7 +1,7 @@
 when defined(nimsuggest):
   import system/nimscript
 
-version       = "0.1.1"
+version       = "0.1.2"
 author        = "Nimaoth/thearchivalone"
 description   = "Nim wrapper for clay"
 license       = "MIT"

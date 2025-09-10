@@ -689,7 +689,7 @@ proc setLayoutDimensions*(dimensions: ClayDimensions): void {.cdecl,
     importc: "Clay_SetLayoutDimensions".}
 proc setPointerState*(position: ClayVector2, isPointerDown: bool): void {.cdecl,
     importc: "Clay_SetPointerState".}
-proc initialize*(arena: ClayArena, layoutDimensions: ClayDimensions, errorHandler: ClayErrorHandler): ptr ClayContext {.
+proc initialize*(arena: ClayArena, layoutDimensions: ClayDimensions, errorHandler: ClayErrorHandler): ClayContext {.
     cdecl, importc: "Clay_Initialize".}
 proc getCurrentContext*(): ptr ClayContext {.cdecl, importc: "Clay_GetCurrentContext".}
 proc setCurrentContext*(context: ptr ClayContext) {.cdecl, importc: "Clay_SetCurrentContext".}
